@@ -20,17 +20,16 @@
 
 // export default NotificationScreen;
 
-import React from 'react';
+import React,{useContext} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Permissions, Notifications } from 'expo';
 import { Button,Header } from 'react-native-elements';
-
+import AppContext from '../context/AppContext'
 
 const NotificationScreen = function({navigation}){
 
     console.log("NOTIFICATION SCREEN")
-   //console.log(navigation.state.params.name)
-    //console.log(info)
+    const {address, setAddress} = useContext(AppContext);
     return(
 
         <View>
@@ -51,11 +50,36 @@ const NotificationScreen = function({navigation}){
             </View>
             <Text style = {{marginTop: 30,alignSelf: 'center'}}>Please accept or reject entry</Text>
             <Button
-                onPress={() => {
-                    // SubmitData()
-                    navigation.navigate('Home')
-                    // Toast.show('Request Sent!')
-                }}
+                onPress={async function() {
+                    console.log("HELLO ACCEPT REQUEST")
+                    await fetch("http://471ff7065234.ngrok.io/notification",{
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: navigation.state.params.name,
+                            phone: navigation.state.params.mobile,
+                            address: address,
+                            vehicle: navigation.state.params.vehicle,
+                            status: "Accept"
+                        })
+            
+                    })
+                    .then(function(res){
+                        res.json
+                    })
+                    .then(function(data){
+                        //Alert.alert("saved successfully")
+                        console.log(data)
+                        props.navigation.navigate('Home')
+                    }).catch(err=>{
+                        console.log(err)
+                    })
+                            
+                }
+            }
                 icon={{
                     name: "send",
                     size: 15,
@@ -66,12 +90,36 @@ const NotificationScreen = function({navigation}){
             />
 
             <Button
-                onPress={() => {
-                    // SubmitData()
-                    
-                    navigation.navigate('Home')
-                    // Toast.show('Request Sent!')
-                }}
+                onPress={async function() {
+                        console.log("HELLO ACCEPT REQUEST")
+                        await fetch("http://471ff7065234.ngrok.io/notification",{
+                            method: "POST",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                name: navigation.state.params.name,
+                                phone: navigation.state.params.mobile,
+                                address: address,
+                                vehicle: navigation.state.params.vehicle,
+                                status: "Reject"
+                            })
+                
+                        })
+                        .then(function(res){
+                            res.json
+                        })
+                        .then(function(data){
+                           // Alert.alert("saved successfully")
+                            console.log(data)
+                            props.navigation.navigate('Home')
+                        }).catch(err=>{
+                            console.log(err)
+                        })
+                                
+                    }
+                }
                 icon={{
                     name: "send",
                     size: 15,

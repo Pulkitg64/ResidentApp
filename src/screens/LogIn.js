@@ -58,7 +58,7 @@ const LogIn = ({ navigation }) => {
           let token = await Notifications.getExpoPushTokenAsync();
           console.log(token)
           // POST the token to your backend server from where you can retrieve it to send push notifications.
-          fetch("http://315d4a34bc05.ngrok.io/expo/token", {
+          fetch("http://471ff7065234.ngrok.io/expo/token", {
             method: "POST",
             headers: {
               Accept: "application/json",

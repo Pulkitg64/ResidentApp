@@ -12,7 +12,7 @@ const SendRequest = props => {
 
     const SubmitData =function(){
 
-        fetch("http://315d4a34bc05.ngrok.io/guest",{
+        fetch("http://471ff7065234.ngrok.io/guest",{
             method: 'POST',
             headers: {
               //Accept: "application/json",

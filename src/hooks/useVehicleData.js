@@ -8,7 +8,7 @@ export default function() {
     const [result, setResult] = useState([]);
     const searchVehicle = function(){
         //console.log(address)
-        fetch("http://315d4a34bc05.ngrok.io/resident")
+        fetch("http://471ff7065234.ngrok.io/resident")
         .then(res=>res.json())
         .then(function(results){
             

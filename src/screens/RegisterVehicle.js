@@ -14,7 +14,7 @@ const RegisterVehicle = function(props) {
  
     const SubmitData =async function(){
 
-        await fetch("http://315d4a34bc05.ngrok.io/resident",{
+        await fetch("http://471ff7065234.ngrok.io/resident",{
             method: "POST",
             headers: {
               Accept: "application/json",
