@@ -63,7 +63,7 @@ const NotificationScreen = function({navigation}){
                             phone: navigation.state.params.mobile,
                             address: address,
                             vehicle: navigation.state.params.vehicle,
-                            status: "Accept"
+                            status: "Accept "
                         })
             
                     })
@@ -73,7 +73,7 @@ const NotificationScreen = function({navigation}){
                     .then(function(data){
                         //Alert.alert("saved successfully")
                         console.log(data)
-                        props.navigation.navigate('Home')
+                        navigation.navigate('Home')
                     }).catch(err=>{
                         console.log(err)
                     })
@@ -113,7 +113,7 @@ const NotificationScreen = function({navigation}){
                         .then(function(data){
                            // Alert.alert("saved successfully")
                             console.log(data)
-                            props.navigation.navigate('Home')
+                            navigation.navigate('Home')
                         }).catch(err=>{
                             console.log(err)
                         })

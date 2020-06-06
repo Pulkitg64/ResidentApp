@@ -12,51 +12,16 @@ const HistoryScreen = props => {
     return (
         <View>
             <MyHeader navigation={props.navigation} title="History" />
-            <Text style={{ color: 'black', fontWeight: "bold", alignSelf: "center", fontSize: 30, margin: 26 }}>Recent Guest Entries</Text>
+            <Text style={{ color: 'black', fontWeight: "bold", alignSelf: "center", fontSize: 30, margin: 26 }}>Recent Entries & Exits</Text>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Container style={{ marginHorizontal: 10, height: 260 }}>
-                    <Header style={{ marginTop: 16, backgroundColor: 'black' }} >
-                        <Text style={{ color: 'white', fontWeight: "bold", alignSelf: "center" }}>S.No: </Text>
-                    </Header>
-                    <Content>
-                        <Card>
-                            <CardItem>
-                                <Body>
-                                    <VehicleHistory results={result} />
-                                </Body>
-                            </CardItem>
-                        </Card>
-                    </Content>
-                </Container>
-                <Container style={{ marginHorizontal: 10, height: 260 }}>
-                    <Header style={{ backgroundColor: 'black' }} >
-                        <Text style={{ color: 'white', fontWeight: "bold", alignSelf: "center" }}>S.No: </Text>
-                    </Header>
-                    <Content>
-                        <Card>
-                            <CardItem>
-                                <Body>
-                                    <VehicleHistory results={result} />
-                                </Body>
-                            </CardItem>
-                        </Card>
-                    </Content>
-                </Container>
-                <Container style={{ marginHorizontal: 10, height: 560 }}>
-                    <Header style={{ backgroundColor: 'black' }} >
-                        <Text style={{ color: 'white', fontWeight: "bold", alignSelf: "center" }}>S.No: </Text>
-                    </Header>
-                    <Content>
-                        <Card>
-                            <CardItem>
-                                <Body>
-                                    <VehicleHistory results={result} />
-                                </Body>
-                            </CardItem>
-                        </Card>
-                    </Content>
+                <Container style={{ marginHorizontal: 10, height: 550 }}>
+                    <Body>
+                        <VehicleHistory results={result} />
+                        <Text>_________________________________________________</Text>
+                    </Body>
                 </Container>
             </ScrollView>
+            
         </View>
     );
 };
