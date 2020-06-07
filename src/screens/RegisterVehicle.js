@@ -7,14 +7,14 @@ import AppContext from '../context/AppContext'
 
  
 const RegisterVehicle = function(props) {
-    const {address, setAddress} = useContext(AppContext);
+    const {address, setAddress,ngurl} = useContext(AppContext);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [vehicle, setVehicle] = useState('');
  
     const SubmitData =async function(){
-
-        await fetch("http://471ff7065234.ngrok.io/resident",{
+        const ur = ngurl + '/resident'
+        await fetch(ur,{
             method: "POST",
             headers: {
               Accept: "application/json",

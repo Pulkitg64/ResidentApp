@@ -8,11 +8,11 @@ const SendRequest = props => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [number, setNumber] = useState('');
-    const {address} = useContext(AppContext)
+    const {address,ngurl} = useContext(AppContext)
 
     const SubmitData =function(){
-
-        fetch("http://471ff7065234.ngrok.io/guest",{
+        const ur = ngurl + '/guest'
+        fetch(ur,{
             method: 'POST',
             headers: {
               //Accept: "application/json",

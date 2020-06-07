@@ -5,7 +5,7 @@ import { Notifications } from "expo";
 import AppContext from '../context/AppContext'
 const LogIn = ({ navigation }) => {
   const [number, setNumber] = useState("");
-  const {address, setAddress} = useContext(AppContext);
+  const {address, setAddress,ngurl} = useContext(AppContext);
  // const [name, setName] = useState("");
   const [isLoading,setLoading] = useState(true)
   const [userToken,setUserToken] = useState(null)
@@ -57,8 +57,9 @@ const LogIn = ({ navigation }) => {
           setAddress(number)
           let token = await Notifications.getExpoPushTokenAsync();
           console.log(token)
+          const ur = ngurl + '/expo/token'
           // POST the token to your backend server from where you can retrieve it to send push notifications.
-          fetch("http://471ff7065234.ngrok.io/expo/token", {
+          fetch(ur, {
             method: "POST",
             headers: {
               Accept: "application/json",

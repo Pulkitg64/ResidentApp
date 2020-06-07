@@ -4,11 +4,14 @@ import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import AppContext from '../context/AppContext'
 
 export default function() {
-    const {address,} = useContext(AppContext)
+
+
+    const {address,setAddress,ngurl} = useContext(AppContext)
     const [result, setResult] = useState([]);
     const searchVehicle = function(){
-        //console.log(address)
-        fetch("http://471ff7065234.ngrok.io/inout")
+        const ur = ngurl + '/inout'
+        fetch(ur)
+
         .then(res=>res.json())
         .then(function(results){
             
